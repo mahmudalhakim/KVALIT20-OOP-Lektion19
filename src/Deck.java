@@ -37,6 +37,8 @@ public class Deck {
     for (Card card : deck.cards)
       Card.print(card);
     // System.out.println(c); // skriv ut referenser
+
+    System.out.println();
   }
 
 
@@ -60,7 +62,23 @@ public class Deck {
     }
     return deck;
   }
-  // Återsamling 11.05
+
+  /**
+   * En klassmetod som skapar en bunt med 6 kort
+   * Alla klädda kort i färgerna hjärter och spader
+   * @return
+   */
+  public static Deck getImages() {
+    Deck deck = getDeck(6); // en tom bunt som innehåller 6 platser
+
+    int index = 0;
+    for (int rank = Card.JACK; rank <= Card.KING; rank++){
+      deck.cards[index++] = Card.getInstance(Card.HEARTS, rank);
+      deck.cards[index++] = Card.getInstance(Card.SPADES, rank);
+    }
+
+    return deck;
+  }
 
 
 }
